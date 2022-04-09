@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  vault:
+    container_name: learn-postgres
+    image: postgres:latest
+    ports:
+      - "5432:5432"
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: "${DOCKER_SELFHOSTED_POSTGRES_POSTGRES_USER}"
+      POSTGRES_PASSWORD: "${DOCKER_SELFHOSTED_POSTGRES_POSTGRES_PASSWORD}"
+    networks:
+      - default
+
